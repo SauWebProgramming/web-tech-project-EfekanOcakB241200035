@@ -1,5 +1,5 @@
 /**
- * ISE-201 Web Teknolojileri Projesi - GÜNCEL
+ * ISE-201 Web Teknolojileri Projesi 
  */
 
 // DOM Elementleri
@@ -24,7 +24,7 @@ async function loadData() {
         const response = await fetch('data.json');
         allMedia = await response.json();
         updatePersonFilter();
-        handleFilter(); // Uygulama açıldığında filtreleri çalıştır
+        handleFilter(); 
     } catch (error) {
         console.error("Veri hatası:", error);
     }
@@ -45,7 +45,7 @@ const updatePersonFilter = () => {
     });
 };
 
-// 3. Ortak Filtreleme Mantığı (Hem Galeri hem Favoriler için)
+// 3. Ortak Filtreleme Mantığı 
 const handleFilter = () => {
     const search = searchInput.value.toLowerCase();
     const cat = categoryFilter.value;
@@ -83,7 +83,7 @@ const handleFilter = () => {
     }
 };
 
-// 4. Ana Galeri Kartları (Görsele tıklama eklendi, buton kalktı)
+// 4. Ana Galeri Kartları
 const renderMedia = (data) => {
     mediaGrid.innerHTML = '';
     data.forEach(item => {
@@ -101,7 +101,7 @@ const renderMedia = (data) => {
     });
 };
 
-// 5. Favoriler Kartları (Görsele tıklama eklendi, buton kalktı)
+// 5. Favoriler Kartları 
 const renderFavorites = (data) => {
     favoritesGrid.innerHTML = '';
     if (data.length === 0) {
@@ -154,7 +154,7 @@ window.toggleFav = (id) => {
         favIds.push(id);
     }
     localStorage.setItem('userFavIds', JSON.stringify(favIds));
-    handleFilter(); // Her durumda listeyi güncelle
+    handleFilter(); 
 };
 
 // Sayfa Geçişleri
@@ -162,7 +162,7 @@ const showFavoritesPage = () => {
     gallerySection.style.display = 'none';
     detailSection.style.display = 'none';
     favoritesSection.style.display = 'block';
-    handleFilter(); // Favori sayfasını filtreleyerek aç
+    handleFilter(); 
 };
 
 window.backToGallery = () => {
@@ -173,12 +173,13 @@ window.backToGallery = () => {
     handleFilter();
 };
 
-// Olay İzleyiciler
+
 searchInput.addEventListener('input', handleFilter);
 categoryFilter.addEventListener('change', () => { updatePersonFilter(); handleFilter(); });
 personFilter.addEventListener('change', handleFilter);
 sortOrder.addEventListener('change', handleFilter);
 showFavoritesBtn.addEventListener('click', showFavoritesPage);
 backBtn.addEventListener('click', backToGallery);
+
 
 loadData();
