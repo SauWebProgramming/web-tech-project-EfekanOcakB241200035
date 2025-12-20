@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İnteraktif Medya Kitaplığı | ISE-201</title>
+    <link rel="stylesheet" href="main.css"> 
+    <link rel="stylesheet" href="main.js">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo"><h2>Medya Kitaplığı</h2></div>
+            
+            <div class="filter-panel">
+                <input type="text" id="searchInput" placeholder="İsme göre ara...">
+                
+                <select id="categoryFilter">
+                    <option value="all">Kategori: Tümü</option>
+                    <option value="movie">Filmler</option>
+                    <option value="series">Diziler</option>
+                    <option value="book">Kitaplar</option>
+                </select>
+
+                <select id="personFilter">
+                    <option value="all">Yönetmen / Yazar: Tümü</option>
+                </select>
+
+                <select id="sortOrder">
+                    <option value="default">Sıralama Seçin</option>
+                    <option value="ratingHigh">Puan (Önce En Yüksek)</option>
+                    <option value="yearNew">Yıl (En Yeni)</option>
+                    <option value="yearOld">Yıl (En Eski)</option>
+                </select>
+            </div>
+
+            <button id="showFavoritesBtn" class="nav-btn">Favorilerim</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section id="gallery-section">
+        <div id="mediaGrid" class="grid-container"></div>
+    </section>
+
+    <section id="detail-section" style="display: none;">
+        <div class="detail-navigation">
+            <button id="backToListBtn">← Listeye Dön</button>
+        </div>
+        <article id="media-detail-content" class="detail-card">
+            </article>
+    </section>
+    </main>
+  
+    <center>
+
+    <footer>
+        <p>&copy; 2025 Web Teknolojileri Ödevi - [Efekan Ocak B241200035]</p>
+    </footer>
+
+    </center>
+   
+
+<section id="favorites-section" style="display: none;">
+    <h1>Favori Medyalarım</h1>
+    <div id="favoritesGrid" class="grid-container"></div>
+    <button onclick="backToGallery()" class="back-btn">← Galeriye Dön</button>
+</section>
+
+    <script src="main.js"></script> 
+</body>
+</html>
